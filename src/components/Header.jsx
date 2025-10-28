@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { FaBars, FaTimes } from "react-icons/fa";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/Header.css";
+import { handleRipple } from "./Ripple";
 
 const navLinks = [
     { to: "/", label: "דף הבית" },
@@ -35,9 +36,9 @@ const Header = () => {
                         src="/images/logo.jpg"
                         alt="logo"
                         style={{
-                            height: 48,
+                            height: 50,
                             width: "auto",
-                            borderRadius: 8,
+                            borderRadius: 18,
                             boxShadow: "0 1px 4px rgba(0,0,0,0.10)",
                         }}
                     />
@@ -49,7 +50,8 @@ const Header = () => {
                         <NavLink
                             key={link.to}
                             to={link.to}
-                            className="nav-link custom-nav-link mx-2 "
+                            className="nav-link custom-nav-link mx-2 headerLink"
+                            onMouseDown={handleRipple}
                             onClick={handleNavClick}
                         >
                             {link.label}
@@ -75,7 +77,6 @@ const Header = () => {
                 className={` bg-primary w-100 mobile-dropdown ${menuOpen ? "open" : ""}`}
                 style={{
                     transition: "max-height 0.4s",
-                    // background: "var(--color-primary)",
                     overflow: "hidden",
                     maxHeight: menuOpen ? "350px" : "0px",
                 }}
@@ -85,8 +86,9 @@ const Header = () => {
                         <NavLink
                             key={link.to}
                             to={link.to}
-                            className="nav-link custom-nav-link w-100 text-center  "
-                            style={{ borderRadius: 0 }}
+                            className="nav-link custom-nav-link w-100 text-center headerLinkMobile "
+                            style={{ borderRadius: 0, }}
+                            onMouseDown={handleRipple}
                             onClick={handleNavClick}
                         >
                             {link.label}

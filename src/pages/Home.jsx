@@ -75,7 +75,7 @@ function Home() {
           <div className="banner"></div>
         </div>
 
-        <h3> בואו להעיף את החגיגה שלכם לאוויר</h3>
+        <h3 className="balloon-animation"> בואו להעיף את החגיגה שלכם לאוויר</h3>
 
       </main>
       <Footer />

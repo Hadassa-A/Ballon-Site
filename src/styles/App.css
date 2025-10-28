@@ -117,9 +117,53 @@ p {
     margin-bottom: var(--spacing);
 }
 
+.headerLink {
+    position: relative;
+    color: #000;
+    text-decoration: none;
+}
+
+.headerLink::after {
+    content: "";
+    position: absolute;
+    width: 80%;
+    height: 1.5px;
+    bottom: 0;
+    left: 10%;
+
+    background-color: var(--color-title-pink);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+.headerLink:hover::after {
+    transform: scaleX(1);
+    width: 80%;
+
+}
+
+.headerLinkMobile {
+    position: relative;
+}
+
+.headerLinkMobile:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-bg-base-gray);
+    transition: transform 0.3s ease;
+}
+.headerLinkMobile:hover{
+  color: var(--color-title-pink) !important ;
+  font-weight: bold !important ;
+}
+
 .fs-3 {
     font-size: calc(1.8rem + 1vw) !important;
-
 }
 
 .btn-primary {
@@ -185,6 +229,30 @@ p {
     transform: translate(-50%, -50%);
     width: 512rem;
 }
+
+/* אנימציה של בלון */
+@keyframes balloonPop {
+    0% {
+        transform: scale(0.5) rotate(0deg);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(1.2) rotate(5deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+.balloon-animation {
+    display: inline-block;
+    animation: balloonPop 0.8s ease-out forwards;
+}
+
 
 
 

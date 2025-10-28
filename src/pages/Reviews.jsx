@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { HiOutlineChatBubbleLeftRight } from "react-icons/hi2";
+import { handleRipple } from "../components/Ripple";
 function Reviews() {
   const reviews = [
     {
@@ -77,9 +78,9 @@ function Reviews() {
           <HiOutlineChatBubbleLeftRight className="fs-3 fs-md-4 fs-lg-5" />
         </div>
 
-        <div className="row g-4">
+        <div className="row g-4" >
           {reviews.map((r) => (
-            <div key={r.id} className="col-md-4">
+            <div key={r.id} className="col-md-4" onClick={handleRipple}>
               <div className="card h-100 text-center shadow-sm border-0">
                 <div
                   className="card-body d-flex flex-column justify-content-between"
