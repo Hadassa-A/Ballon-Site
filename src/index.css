@@ -1,0 +1,52 @@
+/* יצוב ברירת מחדל לכל האתר (רקע, צבע טקסט כללי, גודל פונט).
+
+הגדרות כלליות כמו body, html, a, button וכו'.
+
+הגדרות של Bootstrap overrides או משתנים גלובליים. */
+
+/* index.css */
+
+/* כיווניות מימין לשמאל */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =================== */
+
+/* 
+body {
+  direction: rtl;
+  text-align: center;
+  font-family: 'Segoe UI', 'Arial', sans-serif; 
+  font-size: 16px;
+  line-height: 1.6;
+  background-color: #f5f5f5;
+  color: #333333;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Tahoma', 'Verdana', sans-serif; 
+  color: #790e40; 
+  margin-bottom: 16px;
+}
+
+p{
+  color: #333333;
+} */

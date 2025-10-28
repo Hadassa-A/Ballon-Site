@@ -1,0 +1,229 @@
+/* variables */
+
+:root {
+    --color-bg-base-pink: #f7f3f6;
+    --color-bg-base-gray: #e1e1e1;
+    --color-text-gray: #333333;
+    --color-title-pink: #5b082f;
+    --color-subtitle-gold: #837a07;
+    --color-btn-bg-light-pink: rgb(182, 12, 91);
+    --color-gradient-pink-blue: linear-gradient(to right, #d90466 0%, #3a86ff 100%);
+    --color-shadow: rgba(255, 255, 255, 0.3);
+    --color-btn-bg-light-pink-transparent: rgba(182, 12, 91, 0.2);
+    --font-base-write: "Heebo", sans-serif;
+    --font-handwriting-Heb-subtitle: "Playpen Sans Hebrew", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --font-firm-Heb-title: "Varela Round", "Heebo", Arial, sans-serif;
+    --spacing: 10px;
+    direction: rtl;
+}
+
+
+/* layout */
+
+header, footer, .bg-primary {
+    background-color: var(--color-bg-base-pink) !important;
+    color: var(--color-text-gray) !important;
+
+    /* padding: var(--spacing) !important; */
+    text-align: center !important;
+    /* padding: 10px 20px; */
+
+
+}
+
+header {
+    /* max-height: 60px ; */
+
+
+    position: sticky;
+    /* קובע את המיקום כך שיהיה תמיד מוצמד */
+    top: 0;
+    /* צמוד לחלק העליון של הדף */
+    left: 0;
+    width: 100%;
+    /* נפרס על כל הרוחב */
+    z-index: 1000;
+    /* כדי שלא יכוסה ע"י תוכן אחר */
+}
+
+footer {
+    /* max-height: 40px !important ; */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+
+main .bg-primary {
+    padding: var(--spacing);
+    max-width: 1200px;
+    margin: 10px;
+
+}
+
+main, .my-5 {
+    margin-top: 60px !important;
+    /* גובה ההדר (או קצת יותר, לפי הצורך) */
+    flex: 1;
+    /* דוחף את הפוטר לתחתית אם אין מספיק תוכן */
+}
+
+
+/* typography */
+
+body {
+    direction: rtl;
+    color: var(--color-text-gray) !important;
+    line-height: 1.6;
+    font-family: var(--font-base-write);
+
+
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+h1, h2, h3, h4, h5, h6 {
+    /* font-weight: 900; */
+
+    margin: calc(var(--spacing) * 2) 0 var(--spacing);
+}
+
+h1 {
+    font-size: calc(2.1rem + 2.1vw) !important;
+    font-family: var(--font-firm-Heb-title) !important;
+    color: var(--color-title-pink) !important;
+}
+
+
+h2 {
+    font-size: calc(1.25rem + 0.6vw) !important;
+    font-family: var(--font-handwriting-Heb-subtitle) !important;
+    color: var(--color-subtitle-gold) !important;
+}
+
+h3 {
+    font-size: calc(1.5rem + 1vw) !important;
+    font-family: var(--font-firm-Heb-title) !important;
+    color: var(--color-title-pink) !important;
+}
+
+p {
+    font-size: calc(1rem + 0.5vw) !important;
+    font-family: var(--font-base-write) !important;
+    color: var(--color-text-gray) !important;
+    margin-bottom: var(--spacing);
+}
+
+.fs-3 {
+    font-size: calc(1.8rem + 1vw) !important;
+
+}
+
+.btn-primary {
+    background-color: var(--color-btn-bg-light-pink);
+    border-color: var(--color-btn-bg-light-pink);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-btn-bg-light-pink-transparent);
+    border-color: var(--color-btn-bg-light-pink);
+}
+
+.form-control:focus {
+    border-color: var(--color-btn-bg-light-pink) !important;
+    box-shadow: 0 0 0 .25rem var(--color-btn-bg-light-pink-transparent) !important;
+}
+
+
+
+
+
+/* homepage */
+
+
+#main_banners {
+    position: relative;
+    z-index: -1;
+}
+
+.banner {
+    height: 60vh;
+    background-size: contain;
+    background-position: center;
+    background-attachment: fixed;
+    background-image: var(--bg);
+    background-repeat: no-repeat;
+}
+
+.banner:nth-child(2) {
+    --bg: url(/images/homeImg/home01.png);
+}
+
+.banner:nth-child(3) {
+    --bg: url(/images/homeImg/home02.png);
+}
+
+.banner:nth-child(4) {
+    --bg: url(/images/homeImg/home03.png    );
+}
+
+.banner:nth-child(5) {
+    --bg: url(/images/homeImg/home04.png);
+}
+
+.banner:nth-child(6) {
+    --bg: url(/images/homeImg/home05.png);
+}
+
+#text_main_banners {
+    position: fixed;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 512rem;
+}
+
+
+
+/* קליק על לינק */
+
+
+
+/* מעבר עכבר של לינקים */
+/* 
+.nav-link:hover {
+    
+}
+.nav-link {
+    overflow: hidden;
+}
+
+.nav-link {
+    transition: all 0.4s linear;
+    padding: 10px 25px;
+    border: 1px solid var(--section-color);
+    border-radius: 5px;
+    background: var(--color-bg-base);
+}
+
+.nav-link:before {
+    height: 100%;
+    width: 25%;
+    background: var(--color-shadow);
+    top: 0;
+    right: 105%;
+    transform: skew(-15deg) !important;
+}
+.nav-link:before, .nav-link:after {
+    content: "";
+    position: absolute;
+} */
+
+/* a {
+    color: var(--color-text-gray) !important;
+    font-size: 12px;
+    position: relative;
+} */

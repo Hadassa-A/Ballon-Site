@@ -1,0 +1,147 @@
+
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* לוגו בצד שמאל, המבורגר בצד ימין */
+    padding: 10px 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    position: relative;
+    transition: height 0.3s ease;
+    height: 60px;
+}
+
+/* לוגו */
+.logo img {
+    height: 40px;
+    width: auto;
+}
+
+/* ניווט */
+.nav-links {
+    display: flex;
+    order: 2;
+}
+
+.nav-links a {
+    position: relative;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #61dafb;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 2px;
+    background-color: #61dafb;
+    transition: width 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+.contact-link {
+    font-weight: 600;
+}
+
+/* המבורגר */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    width: 30px;
+    height: 25px;
+    position: relative;
+    order: 3;
+}
+
+/* אייקונים של המבורגר ואיקס נשמרים כפי שהם */
+.hamburger .icon-bars,
+.hamburger .icon-times {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.9s ease, opacity 0.9s ease;
+}
+
+/* ריספונסיב – מובייל */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: row; /* שמירה על לוגו שמאל וההמבורגר ימין */
+        justify-content: space-between;
+        height: auto;
+        padding-bottom: 10px;
+    }
+
+    .logo img {
+        width: 30%;
+        max-width: 100px;
+        height: auto;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    /* תפריט slide-down */
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+        max-height: 0;
+        opacity: 0;
+        transition: max-height 0.4s ease, opacity 0.4s ease;
+        overflow: hidden;
+        position: absolute;
+        top: 60px; /* מתחת להדר */
+        left: 0;
+        background-color: #fff;
+        z-index: 5;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .nav-links.active {
+        max-height: 500px;
+        opacity: 1;
+    }
+
+    .nav-links a {
+        width: 100%;
+        padding: 10px 20px;
+        box-sizing: border-box;
+    }
+}
+
+
+/* Footer */
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #ffffff;
+  text-align: center;
+  padding: 12px 0;
+  font-size: 14px;
+  color: #333;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+/* ריספונסיביות למובייל */
+@media (max-width: 600px) {
+  .footer {
+    font-size: 12px;
+    padding: 8px 0;
+  }
+}
