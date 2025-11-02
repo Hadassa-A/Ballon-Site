@@ -5,7 +5,7 @@
     --color-bg-base-gray: #e1e1e1;
     --color-text-gray: #333333;
     --color-title-pink: #5b082f;
-    --color-subtitle-gold: #837a07;
+    --color-subtitle-gold: rgb(186, 126, 17);
     --color-btn-bg-light-pink: rgb(182, 12, 91);
     --color-gradient-pink-blue: linear-gradient(to right, #d90466 0%, #3a86ff 100%);
     --color-shadow: rgba(255, 255, 255, 0.3);
@@ -52,6 +52,8 @@ footer {
     bottom: 0;
     left: 0;
     width: 100%;
+    max-height: 140px !important;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -157,26 +159,31 @@ p {
     background-color: var(--color-bg-base-gray);
     transition: transform 0.3s ease;
 }
-.headerLinkMobile:hover{
-  color: var(--color-title-pink) !important ;
-  font-weight: bold !important ;
+
+.headerLinkMobile:hover {
+    color: var(--color-title-pink) !important;
+    font-weight: bold !important;
 }
 
 .fs-3 {
     font-size: calc(1.8rem + 1vw) !important;
 }
 
-.btn-primary {
+.btn, .btn-primary, .btn-secondary{
     background-color: var(--color-btn-bg-light-pink);
     border-color: var(--color-btn-bg-light-pink);
 }
 
-.btn-primary:hover {
-    background-color: var(--color-btn-bg-light-pink-transparent);
-    border-color: var(--color-btn-bg-light-pink);
+.btn-primary:hover, .btn-secondary:hover , .btn-primary.active, .btn:active{
+    background-color: var(--color-btn-bg-light-pink-transparent) !important;
+    border-color: var(--color-btn-bg-light-pink)!important;
 }
+.form-control, .form-select{
+    background-color: none !important;
 
-.form-control:focus {
+}
+.form-control:focus , .form-select:focus {
+    background-color:var(--color-bg-base-pink)!important;
     border-color: var(--color-btn-bg-light-pink) !important;
     box-shadow: 0 0 0 .25rem var(--color-btn-bg-light-pink-transparent) !important;
 }
@@ -230,68 +237,98 @@ p {
     width: 512rem;
 }
 
-/* אנימציה של בלון */
-@keyframes balloonPop {
-    0% {
-        transform: scale(0.5) rotate(0deg);
-        opacity: 0;
-    }
 
-    50% {
-        transform: scale(1.2) rotate(5deg);
-        opacity: 1;
-    }
 
-    100% {
-        transform: scale(1) rotate(0deg);
-        opacity: 1;
-    }
+/* עמוד גלריה בחירת קטגוריה */
+.input-label {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d;
+    pointer-events: none;
+    transition: all 0.2s ease;
+    background: none;
+    padding: 0 4px;
 }
 
-.balloon-animation {
-    display: inline-block;
-    animation: balloonPop 0.8s ease-out forwards;
-}
-
-
-
-
-/* קליק על לינק */
-
-
-
-/* מעבר עכבר של לינקים */
-/* 
-.nav-link:hover {
+input:focus+.input-label,
+select:focus+.input-label,
+.input-label.active {
+    top: -8px;
+    font-size: 0.75rem;
+    color: #495057;
     
 }
-.nav-link {
-    overflow: hidden;
+
+
+/* לסליידדר */
+
+.scrollbar-hide {
+    scrollbar-width: none;
+    /* Firefox */
 }
 
-.nav-link {
-    transition: all 0.4s linear;
-    padding: 10px 25px;
-    border: 1px solid var(--section-color);
-    border-radius: 5px;
-    background: var(--color-bg-base);
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari */
 }
 
-.nav-link:before {
-    height: 100%;
-    width: 25%;
-    background: var(--color-shadow);
-    top: 0;
-    right: 105%;
-    transform: skew(-15deg) !important;
+.slider-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
+    gap: 12px;
+    padding-bottom: 8px;
+    cursor: grab;
 }
-.nav-link:before, .nav-link:after {
-    content: "";
-    position: absolute;
-} */
 
-/* a {
-    color: var(--color-text-gray) !important;
-    font-size: 12px;
-    position: relative;
-} */
+.slider-container:active {
+    cursor: grabbing;
+}
+
+.slider-item {
+    background-color: var(--color-btn-bg-light-pink);
+    /* Tailwind bg-primary או צבע מותאם */
+    border-radius: 0.5rem;
+    /* rounded */
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    width: 180px;
+    height: auto;
+    flex: 0 0 auto;
+    padding: 12px;
+    /* p-3 */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    text-align: center;
+    flex-direction: column;
+}
+
+.slider-item p {
+    margin: 0;
+    /* כדי שלא יהיה רווח נוסף */
+    white-space: normal;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    text-align: center;
+    color: var(--color-bg-base-pink) !important;
+
+}
+
+.img_logo {
+    flex-basis: 40%;
+    /* width: 80rem; */
+    object-fit: cover;
+    transition: all 5s;
+}
+
+.img_logo:hover {
+    transform: rotate(-40deg) scale(1.2, 1.2);
+}
+
+/* קצה לסליידר */

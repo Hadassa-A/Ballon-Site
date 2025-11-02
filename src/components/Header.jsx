@@ -33,13 +33,12 @@ const Header = () => {
             >
                 <Link to="/" className="d-flex align-items-center ">
                     <img
-                        src="/images/logo.jpg"
+                        src="/images/logo_no_background.png"
                         alt="logo"
                         style={{
-                            height: 50,
+                            height: 80,
                             width: "auto",
-                            borderRadius: 18,
-                            boxShadow: "0 1px 4px rgba(0,0,0,0.10)",
+                           
                         }}
                     />
                 </Link>

@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import { HiOutlineChatBubbleLeftRight } from "react-icons/hi2";
+import { RiChatSmileLine } from "react-icons/ri";
 import { handleRipple } from "../components/Ripple";
 function Reviews() {
   const reviews = [
@@ -75,7 +75,7 @@ function Reviews() {
         <div className="text-center mb-5">
           <h1 className="display-5 fw-bold">חוות דעת של לקוחות</h1>
           <h2 className="h4 mb-3">מה הלקוחות שלנו מספרים עלינו </h2>
-          <HiOutlineChatBubbleLeftRight className="fs-3 fs-md-4 fs-lg-5" />
+          <RiChatSmileLine className="fs-3 fs-md-4 fs-lg-5" />
         </div>
 
         <div className="row g-4" >

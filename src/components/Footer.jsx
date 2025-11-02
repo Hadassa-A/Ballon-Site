@@ -4,7 +4,7 @@ const Footer = () => {
   return (
     <footer className="footer shadow-sm">
       <div className="container">
-        <span style={{ fontWeight: 400 }}>© כל הזכויות שמורות</span>
+        <span  style={{ fontSize: "12px" }}>© כל הזכויות שמורות Hadassa_A</span>
       </div>
     </footer>
   );
