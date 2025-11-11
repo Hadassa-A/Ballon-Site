@@ -22,13 +22,12 @@ app.use('/uploads', express.static('uploads'));
 const config = {
     server: process.env.DB_SERVER,
     database: process.env.DB_DATABASE,
-    user: process.env.DB_USER,         // ← חייב להיות כאן!
-    password: process.env.DB_PASSWORD, // ← חייב להיות כאן!
+    user: process.env.DB_USER,         
+    password: process.env.DB_PASSWORD,
     options: {
-        encrypt: false,
-        trustServerCertificate: true,
-        enableArithAbort: true,
-        trustedConnection: true
+        encrypt: true,                  // חובה ב־Azure / SQL Server בענן
+        trustServerCertificate: false,  // true אם זה שרת מקומי / self-signed
+        enableArithAbort: true
     }
 };
 
