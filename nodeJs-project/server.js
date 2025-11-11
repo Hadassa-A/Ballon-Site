@@ -421,6 +421,19 @@ app.delete('/api/products/:id', async (req, res) => {
 // ========== Server Startup ==========
 // חיבור למסד ואז הפעלת השרת
 connectDB().then(() => {
+    // ===== Serve Vite build in production =====
+if (process.env.NODE_ENV === 'production') {
+  const path = require('path');
+
+  // Serve static files from Vite's build folder
+  app.use(express.static(path.join(__dirname, 'vite-project', 'dist')));
+
+  // For any other routes, serve index.html
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'vite-project', 'dist', 'index.html'));
+  });
+}
+
     app.listen(PORT, () => {
         console.log(`🚀 Server is running on http://localhost:${PORT}`);
     });
