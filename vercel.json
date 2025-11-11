@@ -1,0 +1,25 @@
+{
+  "builds": [
+    {
+      "src": "vite-project/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "outputDirectory": "vite-project/dist"
+      }
+    },
+    {
+      "src": "nodeJs-project/server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "nodeJs-project/server.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/vite-project/dist/index.html"
+    }
+  ]
+}
